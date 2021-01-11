@@ -3,6 +3,11 @@ import numpy as np
 import pickle
 import joblib
 
+'''
+Spiegare
+problema con versioni sklearn (colab vs python)
+'''
+
 def load_model_joblib(inp_name):
     # Load a pipeline
     my_model_loaded = joblib.load(inp_name)
