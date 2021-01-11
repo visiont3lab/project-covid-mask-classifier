@@ -8,7 +8,7 @@ pip3 install virtualenv
 virtualenv --python=python3 env
 
 se errore: cannot be loaded because running scripts is disabled on this system
-Aprire powersheel e inserire
+Aprire powersheel come amministratore e inserire
 Set-ExecutionPolicy RemoteSigned 
 '''
 
@@ -30,5 +30,4 @@ for name in names_mask:
     #im = cv2.cvtColor(im, cv2.COLOR_RGB2GRAY) 
     cv2.imshow("klk",im)  # funziona solo in google colab cv2.imshow("window",im)
     cv2.waitKey(0)
-    print(im.shape)
     break
