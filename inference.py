@@ -6,6 +6,24 @@ import joblib
 '''
 Spiegare
 problema con versioni sklearn (colab vs python)
+
+virtualenv --python=python3 env
+source env/bin/activate
+./env/Scripts/activate
+
+pip3 install virtualenv if not installed
+
+#pip install opencv-python
+#pip install scikit-learn
+#pip uninstall scikit-learn
+#pip install scikit-learn==0.22.2.post1
+#pip freeze > requirements.txt
+
+
+pip install -r requirements.txt
+python inference.py
+
+pip install onnxruntime
 '''
 
 def load_model_joblib(inp_name):
@@ -58,7 +76,7 @@ class FaceMaskDetector:
         return image
    
 fm = FaceMaskDetector()
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 while(True):
     # Capture frame-by-frame
