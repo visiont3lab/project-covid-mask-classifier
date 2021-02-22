@@ -10,7 +10,8 @@ RGB Mask Classifier using Machine Learning SVM (sklearn)
 ## Setupp
 ```
 virtualenv --python=python3  env
-source env/bin/activate
+#source env/bin/activate
+source env/Scripts/activate
 pip install -r requirements.txt
 ```
 

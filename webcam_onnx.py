@@ -2,16 +2,17 @@ import cv2
 import os
 import joblib
 import numpy as np 
-#import onnxruntime as rt
+import onnxruntime as rt
+
+model=cv2.CascadeClassifier(os.path.join("haar-cascade-files","haarcascade_frontalface_default.xml"))
 
 # Pickle
-model=cv2.CascadeClassifier(os.path.join("haar-cascade-files","haarcascade_frontalface_default.xml"))
-modelsvm = joblib.load(os.path.join("models","model_pickle_augmented.pkl"))
+#modelsvm = joblib.load(os.path.join("models","model_pickle_augmented.pkl"))
 
 # Onnx
-#model_onnx =  rt.InferenceSession(os.path.join("models","model_onnx_augmented.onnx"))
-#input_name = model_onnx.get_inputs()[0].name
-#label_name = model_onnx.get_outputs()[1].name  # 0 output_label, 1 output_proability
+model_onnx =  rt.InferenceSession(os.path.join("models","model_onnx_augmented.onnx"))
+input_name = model_onnx.get_inputs()[0].name
+label_name = model_onnx.get_outputs()[1].name  # 0 output_label, 1 output_proability
 
 cap = cv2.VideoCapture(0) # Webcam --> 0,1
 
@@ -41,10 +42,10 @@ while(True):
             vec = roi_resized.reshape(1,64*64*3) 
             
             # Onnx
-            #res = model_onnx.run([label_name], {input_name: vec.astype(np.float32)})[0] # return a list of dick
+            res = model_onnx.run([label_name], {input_name: vec.astype(np.float32)})[0] # return a list of dick
             
             # Pickle
-            res = modelsvm.predict_proba(vec)  
+            #res = modelsvm.predict_proba(vec)  
       
             mask_perc =res[0][0]
             nomask_perc =res[0][1]

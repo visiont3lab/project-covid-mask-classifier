@@ -1,6 +1,6 @@
 joblib==1.0.0
 numpy==1.19.5
-onnxruntime==1.6.0
+onnxruntime>=1.6.0
 opencv-python==4.5.1.48
 pandas==1.1.5
 Pillow==8.1.0
