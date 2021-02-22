@@ -1,4 +1,4 @@
-# covid-mask-classifier
+# covid-mask-classifier fd
 RGB Mask Classifier using Machine Learning SVM (sklearn)
 
 [Check also repository covid-mask-classifier](https://github.com/visiont3lab/covid-mask-classifier)
