@@ -88,7 +88,7 @@ print(precision)
 print(accuracy)
 print(F1Score)
 
-# USARE IL Modello
+# --- USARE IL Modello
 model = load_model_joblib("model_pickle.pkl")
 path = "dataset/mask/download.jpg"
 im = cv2.imread(path,1) # 1
@@ -98,3 +98,4 @@ im = im.flatten().reshape(1,-1)
 print(im.shape)
 Y_pred = model.predict(im) # 1x64x64x3
 print(Y_pred)
+
