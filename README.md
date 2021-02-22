@@ -7,7 +7,7 @@ RGB Mask Classifier using Machine Learning SVM (sklearn)
 <a href="https://colab.research.google.com/github/visiont3lab/project-covid-mask-classifier/blob/main/Classification_Project.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
-## Setup
+## Setupp
 ```
 virtualenv --python=python3  env
 source env/bin/activate
