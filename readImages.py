@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-import oss
+import os
 
 '''
 Requisiti: Python, Pip installati
