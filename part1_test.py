@@ -2,8 +2,10 @@ import numpy as np
 import cv2
 import joblib
 
-model = joblib.load("model_pickle.pkl")
-size_training = 64
+#model = joblib.load("model_pickle.pkl")
+model = joblib.load("models/model_pickle_augmented.pkl")
+
+size_training = 64 # 128 
 
 cap = cv2.VideoCapture(0)
 

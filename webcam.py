@@ -25,7 +25,7 @@ while(True):
         #frame=cv2.cvtColor(frame,cv2.COLOR_RGB2BGR)
         # all'aumentare velocizza l'agoritmo
         # confidence --> all'aumentare è piu sicuro
-        faces = model.detectMultiScale(frame,scaleFactor=1.5,minNeighbors=5,flags=cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
+        faces = model.detectMultiScale(frame,scaleFactor=1.5,minNeighbors=3,flags=cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
         for x,y,w,h in faces:
             # x --> colonne
             # y --> righe

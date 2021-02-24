@@ -1,11 +1,13 @@
 import numpy as np
 import cv2
 import os
+import joblib 
 
 cap = cv2.VideoCapture(1)
 faceDetector = cv2.CascadeClassifier(os.path.join("haar-cascade-files","haarcascade_frontalface_default.xml"))
 smileDetector = cv2.CascadeClassifier(os.path.join("haar-cascade-files","haarcascade_smile.xml"))
 eyeDetector = cv2.CascadeClassifier(os.path.join("haar-cascade-files","haarcascade_eye_tree_eyeglasses.xml"))
+maskClassifier = joblib.load("models/model_pickle_augmented.pkl")
 
 while(True):
     # Capture frame-by-frame
@@ -35,11 +37,17 @@ while(True):
                     xn = xf +xs
                     yn = yf + ys
                     cv2.rectangle(frame,(xn,yn),(xn+ws,yn+hs),(0,0,255),2) # BGR
-                    
-                #roiBlur  = cv2.resize(roiBlur, (412,412))
-                #cv2.imshow('roi',roiBlur)
 
-            frame = cv2.putText(frame,"Ciao", (50, 50), cv2.FONT_HERSHEY_SIMPLEX,  1, (255, 0, 0) , 2, cv2.LINE_AA) 
+                # Mask detector
+                size_training = 64
+                im = cv2.resize(roi, (size_training,size_training))
+                im = im.flatten().reshape(1,-1)
+                pred = maskClassifier.predict_proba(im) # 1x64x64x3
+                proba_mask = pred[0][0]
+                proba_nomask = pred[0][1]
+                frame = cv2.putText(frame,("Mask: " + str(np.round(proba_mask,2))), (50, 50), cv2.FONT_HERSHEY_SIMPLEX,  1, (255, 0, 0) , 2, cv2.LINE_AA) 
+
+            frame = cv2.putText(frame,"Ciao", (50, 150), cv2.FONT_HERSHEY_SIMPLEX,  1, (255, 0, 0) , 2, cv2.LINE_AA) 
             
             # Display the resulting frame
             cv2.imshow('frame',frame)
