@@ -30,3 +30,6 @@ python inference.py
 
 * Regressione  Pipeline Cross Validation
 <a href="https://colab.research.google.com/github/visiont3lab/project-covid-mask-classifier/blob/main/utils/colab/RegressionPipelineCrossValidation.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+* Support Vector Machine
+<a href="https://colab.research.google.com/github/visiont3lab/project-covid-mask-classifier/blob/main/utils/colab/SVM.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
